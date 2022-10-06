@@ -1,0 +1,8 @@
+{
+    "tomato":
+        {
+            "count":1,
+            "in_date": ["12/12/2022"],
+            "catalog":"vegetable"
+        }
+}

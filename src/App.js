@@ -4,15 +4,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import MyFoodsPage from "./components/MyFoodsPage";
 import NewFoodPage from "./components/NewFoodPage";
+import Navbar from "./components/Navbar";
 
 const App = () => {
-  const [page, setPage] = useState(false);
+  const [page, setPage] = useState(true);
+
   return (
     <div>
-      <h1 className="text-center">Waste Be Gone</h1>
-      <button onClick={() => setPage(!page)}> Switch </button>
-      <MyFoodsPage page={page} />
-      <NewFoodPage page={page} />
+      <Navbar title={"Waste Be Gone"}/>
+      <MyFoodsPage page={1}/>
+      <NewFoodPage page={1} />
     </div>
   );
 };

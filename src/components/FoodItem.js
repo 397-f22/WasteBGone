@@ -1,23 +1,18 @@
 import checkmark from "./icon/favicon.png";
 import xmark from "./icon/Xmark.png";
-const FoodItem = ({name, date}) => {
-    const checkExpired = (date) => {
-        return true;
-    };
+import dateConverter from "../utilities/ExpirationCalculator.js";
 
-    const expired = false;
-    const today = new Date();
-    const exp = new Date(date);
-    const diff = (exp.getDate() - today.getDate());
+const FoodItem = ({name, date}) => {
     
+    var daysTillExp = dateConverter(new Date(), new Date(date));
+    var expired = daysTillExp <= 0;
+
     return (
         <div className="container d-flex justify-content-center">
-            {expired ? <img src={xmark} alt="checkmark" height="30px" width="30px"></img> : <img src={checkmark} alt="checkmark" height="30px" width="30px"></img>}
-            <div style={{paddingLeft:"10px"}}>
-                <div>{name}</div>
-                <div>Expiring in {diff} days</div>
+            {expired ? <img src={xmark} alt="checkmark" height="25px" width="25px"></img> : <img src={checkmark} alt="checkmark" height="25px" width="25px"></img>}
+            <div style={{margin: 5}}>
+                {expired ? <div> {name}: Expired</div> : <div>{name}: Expiring in {daysTillExp} days</div>}
             </div>
-            
         </div>
     );
 };

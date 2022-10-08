@@ -5,14 +5,14 @@ const NewFoodItem = ({ page }) => {
       <div className="container d-flex flex-column">
         Name:
         <input type="text" name="name" />
-        Expiration Date:
-        <input type="date" name="expire-date" />
         Purchase Date:
         <input type="date" name="purchase-date" />
+        Expiration Date:
+        <input type="date" name="expire-date" />
         Quantity:
         <input type="number" min="1" name="quantity"/>
         Image:
-        <button>Placeholder</button>
+        <button>Choose Image</button>
       </div>
       <input type="submit" value="Submit" />
     </form>

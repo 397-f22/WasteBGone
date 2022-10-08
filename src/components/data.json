@@ -1,7 +1,8 @@
 {
     "tomato":
         {
-            "count":1,
+            "name":1,
+            "expired":"2022-10-08 08:00:00.000",
             "in_date": ["12/12/2022"],
             "catalog":"vegetable"
         }

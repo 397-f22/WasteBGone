@@ -10,7 +10,7 @@ const NewFoodItem = ({ page }) => {
         Purchase Date:
         <input type="date" name="purchase-date" />
         Quantity:
-        <input type="number" min="1" name="quantity" value="1"/>
+        <input type="number" min="1" name="quantity"/>
         Image:
         <button>Placeholder</button>
       </div>

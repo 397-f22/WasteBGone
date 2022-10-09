@@ -22,7 +22,10 @@ const Main = () =>{
     <div>
       <Navbar title={"Waste B Gone"}/>
       <MyFoodsPage page={1}/>
-      <button onClick={openModal}>Add item</button>
+      <div className="d-flex justify-content-center">
+      <button type="button" className="btn btn-success position-static
+      " onClick={openModal}>Add item</button>
+      </div>
       <Modal open={open} close={closeModal}><NewFoodItem/></Modal>
     </div>);
 }

@@ -2,6 +2,9 @@ import checkmark from "./icon/favicon.png";
 import xmark from "./icon/Xmark.png";
 import dateConverter from "../utilities/ExpirationCalculator.js";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useDbData,useDbUpdate, deleteDbData } from "../utilities/firebase.js";
+
+
 
 const FoodItem = ({ name, date }) => {
   var daysTillExp = dateConverter(new Date(), new Date(date));
@@ -46,7 +49,7 @@ const FoodItem = ({ name, date }) => {
           </div>
         )}
         <div className="pt-1">
-          <button type="button" class="btn btn-outline-secondary">
+          <button type="button" onClick = {() => deleteDbData(`/${name}`)} class="btn btn-outline-secondary">
             Remove
           </button>
         </div>

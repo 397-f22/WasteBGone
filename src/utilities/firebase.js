@@ -2,7 +2,7 @@
 import { getAnalytics } from "firebase/analytics";
 import { useCallback, useEffect, useState } from 'react';
 import { initializeApp } from "firebase/app";
-import { getDatabase, onValue, ref, update } from 'firebase/database';
+import { getDatabase, onValue, ref, update, remove } from 'firebase/database';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -56,3 +56,8 @@ export const useDbData = (path) => {
   
     return [updateData, result];
   };
+
+  export const deleteDbData = (path) =>{
+    const taskRef = ref(database, path);
+    remove(taskRef)
+  }

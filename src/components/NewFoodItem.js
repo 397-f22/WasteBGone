@@ -35,7 +35,16 @@ const NewFoodItem = ({ page }) => {
           Quantity:
           <input id="quantity" type="number" min="1" name="quantity"/>
           Catalog:
-          <input id="catalog" type="text" name="catalog" />
+          <select id="catalogsubmit" name="catalog">
+            <option value=""></option>
+            <option value="vegetables">Vegetables</option>
+            <option value="meat">Meat</option>
+            <option value="fruit">Fruit</option>
+            <option value="dairy">Dairy</option>
+            <option value="grains/nuts">Grains/Nuts</option>
+            <option value="seafood">Seafood</option>
+            <option value="others">Others</option>
+          </select>
           {/* Image:
           <button id="image">Choose Image</button> */}
         </div>

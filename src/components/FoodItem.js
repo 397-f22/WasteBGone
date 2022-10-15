@@ -2,8 +2,8 @@ import checkmark from "./icon/favicon.png";
 import xmark from "./icon/Xmark.png";
 import dateConverter from "../utilities/ExpirationCalculator.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useDbData,useDbUpdate, deleteDbData } from "../utilities/firebase.js";
-
+import { useDbData, useDbUpdate, deleteDbData } from "../utilities/firebase.js";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 
 const FoodItem = ({ name, date }) => {
@@ -12,7 +12,7 @@ const FoodItem = ({ name, date }) => {
   const readableDate = new Date(date).toLocaleDateString();
 
   return (
-    <div className=" m-3">
+    <div className=" m-3 ">
       {/* {expired ? (
         <img src={xmark} alt="checkmark" height="25px" width="25px"></img>
       ) : (
@@ -21,14 +21,19 @@ const FoodItem = ({ name, date }) => {
       <div className="container-fluid card pb-2 mx-auto text-center">
         <h4 className="card-title">{name}</h4>
         {expired ? (
-          <div className="row">
+          <div className="row pb-2">
             <div className="col-1">
               <img src={xmark} alt="checkmark" height="25px" width="25px"></img>
             </div>
-            <div className="col-10">
+            <div className="col-9">
               <div>
-                Status: Expired on <b>{readableDate}</b>
+                Expired on <b>{readableDate}</b>
               </div>
+            </div>
+            <div className="col-1">
+              <button onClick={() => deleteDbData(`/${name}`)}>
+                <i class="bi bi-trash"></i>
+              </button>
             </div>
           </div>
         ) : (
@@ -41,18 +46,18 @@ const FoodItem = ({ name, date }) => {
                 width="25px"
               ></img>
             </div>
-            <div className="col-10">
+            <div className="col-9">
               <div>
-                Status: Expiring in <b>{daysTillExp} days</b>
+                Expiring in <b>{daysTillExp} days</b>
               </div>
+            </div>
+            <div className="col-1">
+              <button onClick={() => deleteDbData(`/${name}`)}>
+                <i className="bi bi-trash"></i>
+              </button>
             </div>
           </div>
         )}
-        <div className="pt-1">
-          <button type="button" onClick = {() => deleteDbData(`/${name}`)} class="btn btn-outline-secondary">
-            Remove
-          </button>
-        </div>
       </div>
     </div>
   );

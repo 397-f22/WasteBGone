@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // import { useJsonQuery } from './components/FoodList';
 import NewFoodItem from "./components/NewFoodItem";
 import MyFoodsPage from "./components/MyFoodsPage";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import Modal from "./components/Modal";
 import { useQuery } from "@tanstack/react-query";
 
@@ -18,7 +18,9 @@ const Main = () => {
 
   return (
     <div>
-      <Navbar title={"Waste B Gone"} />
+      <div className="pb-4">
+        <Navbar title={"Waste B Gone"} />
+      </div>
       <MyFoodsPage page={1} />
       <div className="d-flex justify-content-center pb-4">
         <button

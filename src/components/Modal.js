@@ -9,11 +9,10 @@ const Modal = ({ children, open, close }) => (
     role="dialog"
     onClick={(evt) => { if (evt.target === evt.currentTarget) close(); }}
   >
-
     <div className="modal-dialog" role="document">
       <div className="modal-content">
         <div className="modal-header">
-        <h1>Add Item</h1>
+          <h1>Add Item</h1>
           <button type="button" className="btn-close" aria-label="Close"
             onClick={close}
           />

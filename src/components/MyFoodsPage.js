@@ -33,13 +33,13 @@ const MyFoodsPage = ({ page }, openModal) => {
           }}
         >
           <option value="">No Filter</option>
-          <option value="vegetables">Vegetables</option>
-          <option value="meat">Meat</option>
-          <option value="fruit">Fruit</option>
-          <option value="dairy">Dairy</option>
-          <option value="grains/nuts">Grains/Nuts</option>
-          <option value="seafood">Seafood</option>
-          <option value="others">Others</option>
+          <option value="Vegetables">Vegetables</option>
+          <option value="Meat">Meat</option>
+          <option value="Fruit">Fruit</option>
+          <option value="Dairy">Dairy</option>
+          <option value="Grains/Nuts">Grains/Nuts</option>
+          <option value="Seafood">Seafood</option>
+          <option value="Others">Others</option>
         </select>
       </div>
       {Object.entries(data)

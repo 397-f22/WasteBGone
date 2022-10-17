@@ -20,9 +20,12 @@ const Main = () => {
     <div>
       <div className="pb-4">
         <Navbar title={"Waste B Gone"} />
+        <button className="button" onClick={openModal}>
+          <i className="bi bi-plus-lg"></i>
+        </button>
       </div>
       <MyFoodsPage page={1} />
-      <div className="d-flex justify-content-center pb-4">
+      {/* <div className="d-flex justify-content-center pb-4">
         <button
           type="button"
           className="btn btn-success position-static
@@ -31,7 +34,7 @@ const Main = () => {
         >
           Add item
         </button>
-      </div>
+      </div> */}
       <Modal open={open} close={closeModal}>
         <NewFoodItem />
       </Modal>

@@ -45,9 +45,6 @@ const Navbar = ({ title }) => {
       </div> */}
       <div className="headBar">
         <h1 className="heading ">{title}</h1>
-        <button className="button">
-          <i className="bi bi-plus-lg"></i>
-        </button>
       </div>
       <AuthButton />
     </nav>

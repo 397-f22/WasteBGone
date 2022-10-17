@@ -1,0 +1,17 @@
+.headBar {
+  background-color: green;
+  text-align: center;
+  color: white;
+}
+.heading {
+  display: inline;
+}
+.button {
+  display: inline-block;
+  float: right;
+  right: 10px;
+  top: 10px;
+  position: relative;
+  height: 40px;
+  width: 40px;
+}

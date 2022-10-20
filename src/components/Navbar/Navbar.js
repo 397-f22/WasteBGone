@@ -52,7 +52,8 @@ const Navbar = ({ title, openModal }) => {
       <AuthButton />
       </div>
       <div className="col-6">
-      {user && <button type="button" style={{ backgroundColor: "blue" }} className="ms-auto btn text-white" onClick={openModal}>Add item</button>}
+      {user ? <button type="button" style={{ backgroundColor: "blue" }} className="ms-auto btn text-white" onClick={openModal}>Add item</button> :
+      <button type="button" style={{ backgroundColor: "blue" }} className="ms-auto btn text-white" >Add item</button>}
         </div></div>
     </nav>
   );

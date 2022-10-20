@@ -1,4 +1,4 @@
-import { useDbData, useDbUpdate } from "../utilities/firebase";
+import { useDbData, useDbUpdate, useAuthState } from "../utilities/firebase";
 import { dateConverter } from "./MyFoodsPage"
 
 
@@ -21,7 +21,8 @@ const addDays = (date, days) => {
 
 const NewFoodItem = ({ page }) => {
   const [update, result] = useDbUpdate("/");
-
+  const [user] = useAuthState();
+  
   const daysToExpire = {
     "Vegetables": 4,
     "Meat": 5,
@@ -40,11 +41,9 @@ const NewFoodItem = ({ page }) => {
   }
 
   const today = new Date();
-
   const todayStringDate = convertDate(today);
   const projectedExpDate = (catalog) =>{
-      document.getElementById("expDate").value = convertDate(new Date(addDays(today, daysToExpire[catalog])));
-
+      document.getElementById("expDate").value = convertDate(new Date(addDays(new Date(), daysToExpire[catalog])));
       // console.log(document.getElementById("expDate").value);
       // console.log(today.addDays(1));
     } 
@@ -58,13 +57,14 @@ const NewFoodItem = ({ page }) => {
     const catalog = document.getElementById("catalogsubmit").value;
     const purchaseDate = document.getElementById("purchaseDate").value;
     const expDate = document.getElementById("expDate").value;
-    const quantity = document.getElementById("quantity").value;
+    // const quantity = document.getElementById("quantity").value;
     const jsonObj = {
       [foodName]: {
         catalog: catalog,
-        count: quantity,
+        // count: quantity,
         expires: expDate,
         in_date: purchaseDate,
+        uid: user.uid
       },
     };
 
@@ -78,7 +78,7 @@ const NewFoodItem = ({ page }) => {
         border: "0.5px solid rgb(190, 190, 190)",
       }}
     >
-      <form>
+      <form >
         <div className="container d-flex flex-column">
           Name:
           <input id="foodName" type="text" name="foodName" />
@@ -94,10 +94,10 @@ const NewFoodItem = ({ page }) => {
             <option value="Dairy">Dairy</option>
             <option value="Grains/Nuts">Grains/Nuts</option>
             <option value="Seafood">Seafood</option>
-            <option value="Other">Others</option>
+            <option value="Other">Other</option>
           </select>
-          Quantity:
-          <input id="quantity" type="number" min="1" name="quantity" />
+          {/* Quantity:
+          <input id="quantity" type="number" min="1" name="quantity" /> */}
           Expiration Date:
           <input id="expDate" type="date" name="expire-date" />
           {/* Image:

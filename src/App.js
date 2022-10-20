@@ -9,20 +9,19 @@ import MyFoodsPage from "./components/MyFoodsPage";
 import Navbar from "./components/Navbar/Navbar";
 import Modal from "./components/Modal";
 import { useQuery } from "@tanstack/react-query";
+import { useAuthState } from "./utilities/firebase";
 
 const Main = () => {
   const [page, setPage] = useState(true);
   const [open, setOpen] = useState(false);
   const openModal = () => setOpen(true);
   const closeModal = () => setOpen(false);
-
+  const [user] = useAuthState();
   return (
     <div>
       <div className="pb-4">
-        <Navbar title={"Waste B Gone"} />
-        <button className="button" onClick={openModal}>
-          <i className="bi bi-plus-lg"></i>
-        </button>
+        <Navbar title={"Waste B Gone"} openModal={openModal} />
+        {user ? <></> : <h2 className="d-flex justify-content-center">Please sign in to start adding items</h2>}
       </div>
       <MyFoodsPage page={1} />
       {/* <div className="d-flex justify-content-center pb-4">

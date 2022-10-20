@@ -27,7 +27,8 @@ const AuthButton = () => {
 
 const activation = ({ isActive }) => (isActive ? "active" : "inactive");
 
-const Navbar = ({ title }) => {
+const Navbar = ({ title, openModal }) => {
+  const [user] = useAuthState();
   return (
     <nav className="row text-center pb-3" style={{ backgroundColor: "green" }}>
       {/* <div>
@@ -46,7 +47,13 @@ const Navbar = ({ title }) => {
       <div className="headBar">
         <h1 className="heading ">{title}</h1>
       </div>
+      <div className=" d-flex mt-3">
+        <div className="col-6">
       <AuthButton />
+      </div>
+      <div className="col-6">
+      {user && <button type="button" style={{ backgroundColor: "blue" }} className="ms-auto btn text-white" onClick={openModal}>Add item</button>}
+        </div></div>
     </nav>
   );
 };

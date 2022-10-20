@@ -1,5 +1,5 @@
-import checkmark from "./icon/favicon.png";
-import xmark from "./icon/Xmark.png";
+import checkmark from "./icon/checkmark.png";
+import xmark from "./icon/x.png";
 import dateConverter from "../utilities/ExpirationCalculator.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useDbData, useDbUpdate, deleteDbData } from "../utilities/firebase.js";

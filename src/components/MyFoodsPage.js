@@ -1,10 +1,11 @@
 import FoodItem from "./FoodItem";
-import { useDbData, useDbUpdate } from "../utilities/firebase.js";
+import { useDbData, useDbUpdate, useAuthState } from "../utilities/firebase.js";
 import { useState } from "react";
 
 const MyFoodsPage = ({ page }, openModal) => {
   const [data, error] = useDbData("/");
   const [catalog, setCatalog] = useState("");
+  const [user] = useAuthState();
   if (error) return <h1>Error loading data: {error.toString()}</h1>;
   if (data === undefined) return <h1>Loading data...</h1>;
   if (!data)
@@ -39,10 +40,11 @@ const MyFoodsPage = ({ page }, openModal) => {
           <option value="Dairy">Dairy</option>
           <option value="Grains/Nuts">Grains/Nuts</option>
           <option value="Seafood">Seafood</option>
-          <option value="Others">Others</option>
+          <option value="Other">Other</option>
         </select>
       </div>
-      {Object.entries(data)
+      {user && Object.entries(data)
+        .filter((f) => (f[1].uid == user.uid))
         .filter((f) => (catalog == "" ? true : f[1].catalog == catalog))
         .sort((a, b) => new Date(a[1].expires) - new Date(b[1].expires))
         .map((f, id) => (
